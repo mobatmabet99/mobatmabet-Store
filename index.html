@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blouse Atasan Wanita Viona</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="product-container">
+        <!-- Bagian Kiri: Galeri Foto & Video -->
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="currentImage" src="assets/img/blouse-viona-blue.jpeg" alt="Blouse Viona">
+            </div>
+            <!-- Thumbnail Pilihan Foto/Video -->
+            <div class="thumbnail-list">
+                <img src="assets/blouse-viona-blue.jpeg" onclick="changeMedia('img', 'assets/blouse-viona-blue.jpeg')" class="thumb active">
+                <img src="assets/img/blouse-viona-dustypink.jpeg" onclick="changeMedia('img', 'assets/blouse-viona-dustypink.jpeg')" class="thumb">
+                <video src="assets/vid/blouse-viona-blue.mp4" onclick="changeMedia('vid', 'assets/vid/blouse-viona-blue.mp4')" class="thumb"></video> -->
+            </div>
+        </div>
+
+        <!-- Bagian Kanan: Detail & Aksi Pembelian -->
+        <div class="product-details">
+            <span class="badge">Gratis Ongkir</span>
+            <h1>Blouse atasan wanita viona bahan polo linen dan rayon motif - Biru</h1>
+            
+            <div class="price-section">
+                <span class="price">Rp45.000</span>
+            </div>
+
+            <div class="product-meta">
+                <span>📦 Kondisi: Baru</span>
+                <span>🔥 Stok: 55</span>
+            </div>
+
+            <!-- Pilihan Warna / Variasi -->
+            <div class="variant-section">
+                <label>Pilih Warna:</label>
+                <div class="variant-options">
+                    <button class="variant-btn active" onclick="selectVariant(this)">Biru</button>
+                    <button class="variant-btn" onclick="selectVariant(this)">Dusty Pink</button>
+                </div>
+            </div>
+
+            <!-- Bagian Tombol Aksi -->
+            <div class="action-section">
+                <a href="https://wa.me/6281262419674?text=Halo,%20saya%20tertarik%20dengan%20Blouse%20Viona" class="btn-buy" target="_blank" id="waLink">Beli Sekarang / Pesan via WhatsApp</a>
+            </div>
+
+            <div class="security-info">
+                <span>🛡️ Belanja aman & terverifikasi di MobatMabet Store</span>
+            </div>
+
+            <!-- Deskripsi Produk -->
+            <div class="description-section">
+                <h3>Deskripsi Produk</h3>
+                <p>Bahan adem, nyaman dipakai sehari-hari, kombinasi polo linen dan rayon motif berkualitas tinggi.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script kecil agar tombol galeri & warna interaktif -->
+    <script>
+        function changeMedia(type, src) {
+            const mainImgContainer = document.querySelector('.main-image');
+            if(type === 'img') {
+                mainImgContainer.innerHTML = `<img id="currentImage" src="${src}" alt="Produk">`;
+            } else {
+                mainImgContainer.innerHTML = `<video controls autoplay src="${src}" style="width:100%; border-radius:8px;"></video>`;
+            }
+        }
+
+        function selectVariant(button) {
+            document.querySelectorAll('.variant-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Update link WhatsApp otomatis sesuai warna yang dipilih
+            const warna = button.innerText;
+            const waBtn = document.getElementById('waLink');
+            waBtn.href = `https://wa.me/6281262419674?text=Halo,%20saya%20tertarik%20dengan%20Blouse%20Viona`;
+        }
+    </script>
+</body>
+</html>
